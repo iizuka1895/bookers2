@@ -2,9 +2,9 @@
       <h2>User info</h2>
         <%= image_tag @user.get_profile_image(100,100) %>
       <h4>Name</h4>
-      <%= @user.name %>
+        <%= @user.name %>
       <h4>Intoroduction</h4>
-      <%= @user.caption %>
+        <%= @user.caption %>
       <li>
         <%= link_to "User info", edit_user_path(current_user) %>
       </li>

@@ -1,9 +1,22 @@
 <body>
   
   <header>
-    <span>Bookers</span>
+    <span>User index</span>
   </header>
   <main>
     <%= render 'books/list', books: @books %>
+    
+    <div>
+      
+      <h2>Users</h2>
+      
+      <%= @users.each do |user| %>
+      
+        <p>image</p>
+          <%= image_tag @books.users.get_profile_image(100,100) %>
+        <p>namee</p>
+          <%= @user.name %>
+      <% end %> 
+    </div>
   </main>
 </body>
