@@ -12,15 +12,21 @@
         
         <div>
           <%= image_tag @books.user.get_profile_image(100,100) %>
-          <%= @user.name %>
-          <%= link_to @book_path(params[:id) do %>
-            <%= book.title %>
+          
+          <%= link_to "/users/#{@user.id}" do %>
+            <%= @user.name %>
           <% end %>
-
+          
           <p>Title</p>
-            <%= @book.title %>
+            <%= link_to "/books/#{@books.id}" do %>
+              <%= @books.title %>
+            <% end %>
           <p>Opinion</p>
-            <%= @book.body %>
+            <%= @books.body %>
+          
+          <% if @books.user == current_user %>
+            <%= link_to 'Edit', edit_book_path %>
+          <% end %>
         </div>
 
     </div>
