@@ -12,7 +12,9 @@
         <%= f.text_area :body %>
         <%= f.submit 'Update Book' %>
     <% end %>
-      
+      <%= link_to 'Show', "/books/#{@books.id}" %>
+      <p>|</p>
+      <%= link_to 'Back', books_path %>
   </main>
   
 </body>

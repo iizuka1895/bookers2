@@ -1,22 +1,27 @@
 <body>
-  
+
   <header>
     <span>User index</span>
   </header>
   <main>
     <%= render 'books/list', books: @books %>
-    
+
     <div>
-      
+
       <h2>Users</h2>
-      
-      <%= @users.each do |user| %>
-      
+
+      <% @users.each do |user| %>
+
         <p>image</p>
-          <%= image_tag @books.users.get_profile_image(100,100) %>
-        <p>namee</p>
-          <%= @user.name %>
-      <% end %> 
+          <%= image_tag user.get_profile_image(100,100) %>
+        <p>name</p>
+          <%= user.name %>
+          
+        <%= link_to user_path(user.id) do %>
+            <%= 'show' %>
+          <% end %>
+          
+      <% end %>
     </div>
   </main>
 </body>
