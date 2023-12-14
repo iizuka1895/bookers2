@@ -1,21 +1,40 @@
-<div>
+<main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
 
- <h1>User show</h1>
-   <%= render 'books/list', books: @books %>
+      <%= render 'books/list', books: @books %>
+      <div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
    
-   <h2>Books</h2>
-   
-   <% @books.each do |book| %>
-   
-     <%= image_tag book.user.get_profile_image(100,100) %>
-     <div>
-      <p>Title</p>
-        <%= link_to book_path(book.id) do %>
-            <%= book.title %>
-          <% end %>
-      <p>Opinion</p>
-        <%= book.body %>
-     </div>
-     
-   <% end %>
-</div>
+        <% @books.each do |book| %>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <%= image_tag book.user.get_profile_image(100,100) %>
+                </td>
+                <td>
+                  <%= link_to book_path(book.id) do %>
+                    <%= book.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= book.body %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

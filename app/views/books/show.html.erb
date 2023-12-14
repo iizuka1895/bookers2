@@ -1,35 +1,41 @@
 <body>
 
-  <header>
-    <span>Bookers</span>
-  </header>
-
   <main>
-     <%= render 'list', books: @books %>
-
-    <div>
-      <h2>Book detail</h2>
+    <p id="notice"></p>
+    <div class="container">
+      <div class="row">
+        <%= render 'list', books: @books %>
         
-        <div>
-          <%= image_tag @books.user.get_profile_image(100,100) %>
-          
-          <%= link_to "/users/#{@user.id}" do %>
-            <%= @user.name %>
-          <% end %>
-          
-          <p>Title</p>
-            <%= link_to "/books/#{@books.id}" do %>
-              <%= @books.title %>
-            <% end %>
-          <p>Opinion</p>
-            <%= @books.body %>
-          
-          <% if @books.user == current_user %>
-            <%= link_to 'Edit', edit_book_path %>
-            <%= link_to 'Destroy', destroy_book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-          <% end %>
+        <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <%= image_tag @books.user.get_profile_image(100,100) %><br>
+                  <%= link_to "/users/#{@user.id}" do %>
+                    <%= @user.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to "/books/#{@books.id}" do %>
+                    <%= @books.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= @books.body %>
+                </td>
+                <td>
+                  <% if @books.user == current_user %>
+                    <%= link_to 'Edit', edit_book_path, class: "btn btn-sm btn-success" %>
+                    <%= link_to 'Destroy', destroy_book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
+      </div>
     </div>
   </main>
 
