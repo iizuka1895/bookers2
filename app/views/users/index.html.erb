@@ -1,7 +1,6 @@
 <body>
   
   <main>
-    <p id="notice"></p>
     <div class="container px-5 px-sm-0">
       <div class="row">
         <%= render 'books/list', books: @books %>
@@ -30,7 +29,7 @@
                   </td>
                   <td>
                     <%= link_to user_path(user.id) do %>
-                      <%= 'show' %>
+                      <%= 'Show' %>
                     <% end %>
                   </td>
                 </tr>

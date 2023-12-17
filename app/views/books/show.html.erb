@@ -1,7 +1,5 @@
-<body>
 
   <main>
-    <p id="notice"></p>
     <% if @book.errors.any? %>
       <%= @book.errors.count %>error prohibited this obj from being saved:
       <ul>
@@ -20,13 +18,15 @@
             <tbody>
               <tr>
                 <td>
-                  <%= image_tag @book.user.get_profile_image(100,100) %><br>
-                  <%= link_to "/users/#{@user.id}" do %>
+                  <%= link_to user_path(@book.user.id) do %>
+                    <%= image_tag @book.user.get_profile_image(100,100) %><br>
+                  <% end %>
+                  <%= link_to user_path(@book.user_id) do %>
                     <%= @user.name %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to "/books/#{@book.id}" do %>
+                  <%= link_to book_path(@book.id) do %>
                     <%= @book.title %>
                   <% end %>
                 </td>
@@ -46,5 +46,3 @@
       </div>
     </div>
   </main>
-
-</body>

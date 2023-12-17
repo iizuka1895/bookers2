@@ -8,11 +8,15 @@
         </tr>
         <tr>
           <th>Intoroduction</th>
-          <th><%= @user.caption %></th>
+          <th><%= @user.introduction %></th>
         </tr>
       </table>
       <div class="row">
-        <%= link_to "User info", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+        <% if @user == current_user %>
+          <%= link_to "User info", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+        <% else %>
+          <%= link_to "User info", user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+        <% end %>
       </div>
       <h2>New book</h2>
 
@@ -28,7 +32,7 @@
         <%= f.text_area :body, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.submit 'Creatbook' %>
+        <%= f.submit 'Create Book', class: "btn btn-success" %>
       </div>
       <% end %>
     </div>
