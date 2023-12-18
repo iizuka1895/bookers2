@@ -31,12 +31,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
   def is_matching_login_user
-    @user = User.find(current_user.id)
-    unless @user.id == params[:id].to_i
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
       redirect_to user_path(current_user)
     end
   end
-  
+
 end

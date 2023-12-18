@@ -4,23 +4,17 @@
       <table class="table">
         <tr>
           <th>Name</th>
-          <th><%= @user.name %></th
+          <th><%= user.name %></th
         </tr>
         <tr>
           <th>Intoroduction</th>
-          <th><%= @user.introduction %></th>
+          <th><%= user.introduction %></th>
         </tr>
       </table>
       <div class="row">
-        <% if @user == current_user %>
-          <%= link_to  edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+          <%= link_to  edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fa-solid fa-user-gear"></i>
           <% end %>
-        <% else %>
-          <%= link_to user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fa-solid fa-user-gear"></i>
-          <% end %>
-        <% end %>
       </div>
       <h2>New book</h2>
 
